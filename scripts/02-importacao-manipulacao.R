@@ -26,7 +26,7 @@ caminho_csv <- here("dados/brutos/dados_vendas.csv")
 # importa o arquivo usando a função read_csv do pacote readr
 dados_vendas <- read_csv(caminho_csv)
 
-
+ 
 # Entendimento dos dados --------------------------------------------------
 
 # exibe uma visão compacta do objeto
