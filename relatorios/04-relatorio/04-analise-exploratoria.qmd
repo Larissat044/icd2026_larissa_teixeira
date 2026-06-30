@@ -1,0 +1,79 @@
+---
+title: "04-analise-exploratoria"
+format: html
+---
+
+---
+lang: pt-BR
+title: "Análise Exploratória - Parte II"
+subtitle: "Gráficos de séries temporais com o pacote tidyplots"
+author: "Larissa Teixeira de Almeida"
+date: today
+format:
+  html:
+    embed-resources: true
+    toc: true
+    number-sections: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+#| echo: false
+
+# Opções de exibição numérica
+options(digits = 5, scipen = 999)
+
+# Pacotes usados nesta aula
+library(here)
+library(tidyverse)
+library(tidyplots)
+
+tidyplots_options(width = NA, height = NA)
+
+# Importação dos dados ---------------------------------------------
+
+# define o caminho relativo do arquivo
+caminho_dados <- here("dados/limpos/dados_marketing_limpos.rds")
+
+# importa o arquivo no formato rds
+dados_marketing <- read_rds(caminho_dados)
+
+# Verifica os dados importados
+glimpse(dados_marketing)
+```
+
+
+## Gráfico da Receita Semanal de Vendas
+```{r}
+
+
+# Gráfico exploratório da receita semanal de vendas
+dados_marketing |>
+  tidyplot(x = data, y = receita_vendas) |>
+  add_line()
+
+```
+
+
+
+## Gráfico do Gasto Semanal em Redes Sociais
+```{r}
+
+# Gráfico exploratório dos gastos em redes sociais
+dados_marketing |>
+  tidyplot(x = data, y = gasto_redes_sociais) |>
+  add_line()
+
+```
+
+
+
+## Gráfico do Gasto Semanal em TV
+
+
+
+## Gráfico para publicação com tidyplots
